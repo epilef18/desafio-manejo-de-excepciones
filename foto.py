@@ -1,4 +1,4 @@
-import error 
+from error import DimensionError
 
 class Foto():
     MAX = 2500
@@ -14,8 +14,8 @@ class Foto():
 
     @ancho.setter
     def ancho(self, ancho) -> None:
-        if ancho > Foto.MAX or ancho < 1:
-            raise error.DimensionError
+        if ancho > self.MAX or ancho < 1:
+            raise DimensionError("El ancho es mayor al permitido", "ancho", self.MAX)
         else:
             self.__ancho = ancho
 
@@ -25,8 +25,8 @@ class Foto():
 
     @alto.setter
     def alto(self, alto) -> None:
-        if alto > Foto.MAX or alto < 1:
-            raise error.DimensionError
+        if alto > self.MAX or alto < 1:
+            raise DimensionError("El alto es mayor al permitido", "alto", self.MAX)
         else:
             self.__alto = alto
         
